@@ -522,6 +522,7 @@ class Form implements \IteratorAggregate, FormInterface
         }
 
         try {
+        try {
             // Normalize data to unified representation
             $normData = $this->clientToNorm($clientData);
             $synchronized = true;
@@ -538,6 +539,8 @@ class Form implements \IteratorAggregate, FormInterface
             // Synchronize representations - must not change the content!
             $appData = $this->normToApp($normData);
             $clientData = $this->normToClient($normData);
+        }
+        } catch (\Exception $e) {
         }
 
         $this->bound = true;

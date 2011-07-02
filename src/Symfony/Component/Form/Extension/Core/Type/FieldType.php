@@ -113,7 +113,7 @@ class FieldType extends AbstractType
             'data'              => null,
             'data_class'        => null,
             'trim'              => true,
-            'required'          => true,
+            'required'          => false,
             'read_only'         => false,
             'max_length'        => null,
             'pattern'           => null,

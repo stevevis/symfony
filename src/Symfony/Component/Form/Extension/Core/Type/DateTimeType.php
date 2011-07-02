@@ -42,7 +42,7 @@ class DateTimeType extends AbstractType
         }
 
         if ($options['date_widget'] !== $options['time_widget']) {
-            throw new FormException(sprintf('Options "date_widget" and "time_widget" need to be identical. Used: "date_widget" = "%s" and "time_widget" = "%s".', $options['date_widget'] ?: 'choice', $options['time_widget'] ?: 'choice'));
+            //throw new FormException(sprintf('Options "date_widget" and "time_widget" need to be identical. Used: "date_widget" = "%s" and "time_widget" = "%s".', $options['date_widget'] ?: 'choice', $options['time_widget'] ?: 'choice'));
         }
 
         if ($options['widget'] === 'single_text') {

@@ -75,9 +75,11 @@ class NumberToLocalizedStringTransformer implements DataTransformerInterface
 
         $formatter = $this->getNumberFormatter();
         $value = $formatter->format($value);
-
+        
+        if (function_exists("intl_is_failure")) {
         if (intl_is_failure($formatter->getErrorCode())) {
             throw new TransformationFailedException($formatter->getErrorMessage());
+        }
         }
 
         return $value;
@@ -106,8 +108,10 @@ class NumberToLocalizedStringTransformer implements DataTransformerInterface
         $formatter = $this->getNumberFormatter();
         $value = $formatter->parse($value);
 
+        if (function_exists("intl_is_failure")) {
         if (intl_is_failure($formatter->getErrorCode())) {
             throw new TransformationFailedException($formatter->getErrorMessage());
+        }
         }
 
         return $value;

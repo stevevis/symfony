@@ -91,8 +91,10 @@ class DateTimeToLocalizedStringTransformer extends BaseDateTimeTransformer
 
         $value = $this->getIntlDateFormatter()->format((int) $dateTime->format('U'));
 
+        if (function_exists("intl_get_error_code")) {
         if (intl_get_error_code() != 0) {
             throw new TransformationFailedException(intl_get_error_message());
+        }
         }
 
         return $value;
@@ -121,8 +123,10 @@ class DateTimeToLocalizedStringTransformer extends BaseDateTimeTransformer
 
         $timestamp = $this->getIntlDateFormatter()->parse($value);
 
+        if (function_exists("intl_get_error_code")) {
         if (intl_get_error_code() != 0) {
             throw new TransformationFailedException(intl_get_error_message());
+        }
         }
 
         // read timestamp into DateTime object - the formatter delivers in UTC
